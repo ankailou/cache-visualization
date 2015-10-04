@@ -1,0 +1,57 @@
+<div class="container col-md-2 col-md-offset-5" style="text-align: center;">
+<%= form_for(@cache) do |f| %>
+  <% if @cache.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cache.errors.count, "error") %> prohibited this cach from being saved:</h2>
+
+      <ul>
+      <% @cache.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Name" %>
+  </div>
+  <div class="field">
+    <%= f.number_field :address_space, placeholder: "Address Space (m)" %>
+  </div>
+  <div class="field">
+    <%= f.number_field :cache_size, placeholder: "Cache Size (C)"%>
+  </div>
+  <div class="field">
+    <%= f.number_field :block_size, placeholder: "Block Size (B)" %>
+  </div>
+  <div class="field">
+    <%= f.number_field :lines, placeholder: "Lines/Set (E)" %>
+  </div>
+  <div class="field">
+    <%= f.number_field :sets, placeholder: "Sets/Cache (S)" %>
+  </div>
+  <div class="field">
+    <%= f.number_field :tag_bits, placeholder: "Tag Bits (t)" %>
+  </div>
+  <div class="field">
+    <%= f.number_field :set_bits, placeholder: "Set Bits (s)" %>
+  </div>
+  <div class="field">
+    <%= f.number_field :block_bits, placeholder: "Block Bits (b)" %>
+  </div>
+  <div class="actions">
+    <%= link_to :back, class: "btn btn-info" do%>
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    <% end %>
+    <%= button_tag(type: 'submit', class: "btn btn-success") do %>
+      <span class="glyphicon glyphicon-ok"></span> 
+    <% end %>
+    <%= link_to @cache, method: :delete, class: "btn btn-danger" do%>
+      <span class="glyphicon glyphicon-remove"></span>
+    <% end %>
+    <%= link_to caches_path, class: "btn btn-primary" do%>
+      <span class="glyphicon glyphicon-home"></span>
+    <% end %>
+  </div>
+<% end %>
+</div>

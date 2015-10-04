@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cache.name %>
+</p>
+
+<p>
+  <strong>Address space:</strong>
+  <%= @cache.address_space %>
+</p>
+
+<p>
+  <strong>Cache size:</strong>
+  <%= @cache.cache_size %>
+</p>
+
+<p>
+  <strong>Block size:</strong>
+  <%= @cache.block_size %>
+</p>
+
+<p>
+  <strong>Lines:</strong>
+  <%= @cache.lines %>
+</p>
+
+<p>
+  <strong>Sets:</strong>
+  <%= @cache.sets %>
+</p>
+
+<p>
+  <strong>Tag bits:</strong>
+  <%= @cache.tag_bits %>
+</p>
+
+<p>
+  <strong>Set bits:</strong>
+  <%= @cache.set_bits %>
+</p>
+
+<p>
+  <strong>Block bits:</strong>
+  <%= @cache.block_bits %>
+</p>
+
+<%= link_to 'Edit', edit_cach_path(@cache) %> |
+<%= link_to 'Back', caches_path %>

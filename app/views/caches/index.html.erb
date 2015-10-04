@@ -1,0 +1,72 @@
+
+<h1 style="text-align: center">Cache Rules Everything Around Me</h1>
+
+<% if @caches.length == 0 %>
+  <p style="text-align: center">
+  <%= link_to new_cach_path, id: "start-btn",class: "btn btn-primary btn-lg" do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    you have no cache. lol.
+  <% end %>
+  </p>
+<% else %>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th class="col-md-1">Cache</th>
+      <th class="col-md-2">Type</th>
+      <th class="col-md-1">Address (M)</th>
+      <th class="col-md-1">Size (C)</th>
+      <th class="col-md-1">Block (B)</th>
+      <th class="col-md-1">Lines (E) </th>
+      <th class="col-md-1">Sets (S)</th>
+      <th class="col-md-1">Tag Bits (t)</th>
+      <th class="col-md-1">Set Bits (s)</th>
+      <th class="col-md-1">Block Bits (b)</th>
+      <th class="col-md-1" colspan="4">
+        <%= link_to new_cach_path, class: "btn btn-default" do %>
+              <span class="glyphicon glyphicon-plus"></span>
+        <% end %>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @caches.each do |cache| %>
+      <tr data-link="<%= edit_cach_path(cache) %>">
+        <td><%= cache.name %></td>
+        <td></td> <!-- TODO: controller generated description -->
+        <td><%= cache.address_space %></td>
+        <td><%= cache.cache_size %></td>
+        <td><%= cache.block_size %></td>
+        <td><%= cache.lines %></td>
+        <td><%= cache.sets %></td>
+        <td><%= cache.tag_bits %></td>
+        <td><%= cache.set_bits %></td>
+        <td><%= cache.block_bits %></td>
+        <td>
+          <%= link_to cache, class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-play"></span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_cach_path(cache), class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-cog"></span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to clone_cach_path(cache), class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-repeat"></span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to cache, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-trash"></span>
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+<p id="notice" style="text-align: center"><%= notice %></p>
+<br>
+
